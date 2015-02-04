@@ -1,53 +1,21 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
-		<!-- title gets replaced with GitHub username -->
-		<title>hello</title>
-		<link rel='stylesheet' type='text/css' href='hood/default.css'>
-		<script type='text/javascript'>
-			//	We need to make API calls over https, so force it everywhere
-			if (window.location.protocol != "https:") {
-				window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-			}
-
-			//	Cross-browser AJAX
-			var get = function(url, callback) {
-				try {
-					var async = true;
-					var x = new(this.XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
-					x.open('GET', url, async);
-					x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-					x.onreadystatechange = function() {
-						x.readyState > 3 && callback && callback(x.responseText);
-					};
-					x.send(null);
-				} catch (e) {
-					window.console && console.log(e);
-				}
-			};
-		</script>
-		<script type='text/javascript' src='hood/pcms.js'></script>
-	</head>
-	<body>
-		<div class='pcms'>
-			<!-- Container for the content -->
-		</div>
-		<script type='text/javascript'>
-			get('hood/user.txt', function(user) {
-				username = user.split(/\s+/)[0];
-				document.title = username;
-				var repo = username+'.github.io/';
-				get('https://api.github.com/repos/'+username+'/'+repo+'contents/txts', function(response) {
-					var contents = JSON.parse(response);
-					for (var i = 0; i < contents.length; ++i) {
-						if (contents[i].type == 'file') {
-							var container = document.getElementsByClassName('pcms')[0];
-							PCMS('https://'+repo+contents[i].path, container);
-						}
-					}
-				});
-			});
-		</script>
-	</body>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+    <!-- title gets replaced with GitHub username -->
+    <title>hello</title>
+    <script type='text/javascript'>
+      //  We need to make API calls over https, so force it everywhere
+      if (window.location.protocol != "https:") {
+        window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+      }
+    </script>
+    <link rel='stylesheet' type='text/css' href='hood/default.css'>
+    <script type='text/javascript' src='hood/pcms.js'></script>
+  </head>
+  <body>
+    <div class='pcms'>
+      <!-- Container for the content -->
+    </div>
+  </body>
 </html>
