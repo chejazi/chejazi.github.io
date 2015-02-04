@@ -100,13 +100,13 @@ var PCMS = function(contentStr, containerElement) {
     }
   }
 
-  var lineWrap = function(lines) {
+  var lineWrap = function(container, lines) {
       var lineWrap = document.createElement('div');
       lineWrap.className = 'line-wrap';
       for (var i = 0; i < lines; ++i) {
         lineWrap.appendChild(document.createElement('br'));
       }
-      parentContainer.appendChild(lineWrap);
+      container.appendChild(lineWrap);
   };
 
   var render = function(parentContainer, node, height) {
@@ -138,14 +138,11 @@ var PCMS = function(contentStr, containerElement) {
 
     parentContainer.appendChild(content);
     if (height == 1) {
-
+      lineWrap(parentContainer, 2);
     }
     parentContainer.appendChild(childContainer);
     if (height == 1 || height == 2) {
-      var lineWrap = document.createElement('div');
-      lineWrap.className = 'line-wrap';
-      lineWrap.appendChild(document.createElement('br'));
-      parentContainer.appendChild(lineWrap);
+      lineWrap(parentContainer, 1);
     }
   };
 
