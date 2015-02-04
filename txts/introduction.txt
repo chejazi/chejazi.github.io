@@ -10,5 +10,6 @@ We believe you can build a message more effectively. Scattering your thoughts ac
 Meaning takes time to refine. That's why we use Git to manage your content. Every update is like a new draft, and no draft is final. We hope you find the writing process simple and expressive.
 
 
-Need help? Check out our GitHub page pimpcms.github.io. There you'll be able to find answers to common questions, and a fully functional example of PimpCMS in action.
+Need help? 
+Check out our GitHub page pimpcms.github.io. There you'll be able to find answers to common questions, and a fully functional example of PimpCMS in action.
 Want to contribute? Merge requests are welcome! Many features, such as link support, were deliberately omitted. Before building a feature, consider opening up a discussion first.
