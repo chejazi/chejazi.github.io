@@ -1,0 +1,5 @@
+?????????
+
+Mining
+Distributed Ledger, Centralized Hashing. Centralized source delivers a Proof of Work challenge to the client. Ledger is public, but mining requires a secret key.
+
