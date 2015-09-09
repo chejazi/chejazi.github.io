@@ -138,37 +138,37 @@ var pcms = function(githubUsername, containerElement) {
     }
   };
 
-  var txts = [
-    '../content/github.txt',
-    '../content/linkedin.txt',
-    '../content/twitter.txt',
-    '../content/email.txt',
-  ];
-  for (idx in txts) {
-    get(txts[idx], function(content) {
-      var pcmsContainer = document.createElement('div');
-      pcmsContainer.className = 'pcms';
+  // var txts = [
+  //   '../content/github.txt',
+  //   '../content/linkedin.txt',
+  //   '../content/twitter.txt',
+  //   '../content/email.txt',
+  // ];
+  // for (idx in txts) {
+  //   get(txts[idx], function(content) {
+  //     var pcmsContainer = document.createElement('div');
+  //     pcmsContainer.className = 'pcms';
 
-      var tree = new Tree(content);
-      render(pcmsContainer, tree.root, containerElement);
+  //     var tree = new Tree(content);
+  //     render(pcmsContainer, tree.root, containerElement);
 
-      containerElement.appendChild(pcmsContainer);
-    });
-  }
+  //     containerElement.appendChild(pcmsContainer);
+  //   });
+  // }
 
-  // getDirectoryIndex(githubUsername, function(directoryIndex) {
-  //   for (var i = 0; i < directoryIndex.length; ++i) {
-  //     if (directoryIndex[i].type == 'file') {
-  //       get(directoryIndex[i].path, function(content) {
-  //         var pcmsContainer = document.createElement('div');
-  //         pcmsContainer.className = 'pcms';
+  getDirectoryIndex(githubUsername, function(directoryIndex) {
+    for (var i = 0; i < directoryIndex.length; ++i) {
+      if (directoryIndex[i].type == 'file') {
+        get(directoryIndex[i].path, function(content) {
+          var pcmsContainer = document.createElement('div');
+          pcmsContainer.className = 'pcms';
 
-  //         var tree = new Tree(content);
-  //         render(pcmsContainer, tree.root, containerElement);
+          var tree = new Tree(content);
+          render(pcmsContainer, tree.root, containerElement);
 
-  //         containerElement.appendChild(pcmsContainer);
-  //       });
-  //     }
-  //   }
-  // });
+          containerElement.appendChild(pcmsContainer);
+        });
+      }
+    }
+  });
 };
