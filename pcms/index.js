@@ -159,14 +159,14 @@ var pcms = function(githubUsername, containerElement) {
   getDirectoryIndex(githubUsername, function(directoryIndex) {
     for (var i = 0; i < directoryIndex.length; ++i) {
       if (directoryIndex[i].type == 'file') {
-        get(directoryIndex[i].path, function(content) {
-          var pcmsContainer = document.createElement('div');
-          pcmsContainer.className = 'pcms';
 
+        var pcmsContainer = document.createElement('div');
+        pcmsContainer.className = 'pcms';
+        containerElement.appendChild(pcmsContainer);
+
+        get(directoryIndex[i].path, function(content) {
           var tree = new Tree(content);
           render(pcmsContainer, tree.root, containerElement);
-
-          containerElement.appendChild(pcmsContainer);
         });
       }
     }
